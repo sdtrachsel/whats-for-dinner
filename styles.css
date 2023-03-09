@@ -13,25 +13,10 @@ header {
   font-size: 20px;
 }
 
-article {
-  width: 425px;
-  height: 310px;
-  background-color: rgba(225, 225, 225, .9);
-  margin-top: 50px;
-  padding: 40px;
-}
-
 h1 {
-  text-align: center;
-  margin: 2px;
-}
-
-h1.single-dish {
-  font-size: 32px;
-}
-
-h1.entire-meal {
-  font-size: 28px;
+  padding: 18px;
+  margin: 0;
+  font-size: 24px; 
 }
 
 h2 {
@@ -40,17 +25,28 @@ h2 {
 }
 
 h3 {
-  padding: 18px;
-}
-
-h4 {
   font-style: italic;
   margin: 5px;
   font-size: 18px;
   text-align: center;
   }
 
-span {
+p {
+    text-align: center; 
+    margin: 2px;
+    font-weight: 900;
+}
+
+p.single-dish {
+  font-size: 32px;
+}
+
+p.entire-meal {
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+sup {
   color: #ee5253;
   font-size: 28px;
   font-variant-position: super;
@@ -89,6 +85,14 @@ ul {
   border: 0;
   margin-top: 50px;
   align-self:last baseline;
+}
+
+.box {
+  width: 425px;
+  height: 310px;
+  background-color: rgba(225, 225, 225, .9);
+  margin-top: 50px;
+  padding: 40px;
 }
 
 .box-spread {

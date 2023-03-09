@@ -7,11 +7,11 @@
 </head>
 <body>
   <header>
-    <h3> What's for Dinner? </h3>
+    <h1> What's for Dinner? </h1>
   </header>
   <section class="box-spread">
-    <article>
-      <h2>What are you looking for?<span>*</span></h2>
+    <section class ="box">
+      <h2>What are you looking for?<sup>*</sup></h2>
       <ul>
         <li><input type="radio" name="dish-type" id="side" value="sides"><label for="side">Side</label></li>
         <li><input type="radio" name="dish-type" id="main-dish" value="mains"><label for="main-dish">Main
@@ -21,17 +21,17 @@
             Meal</label></li>
       </ul>
       <button class="cook-button">LET'S COOK!</button>
-    </article>
-    <article class="output-box">
+    </section>
+    <section class="box output-box">
       <div class="js-crockpot-pic">
         <img class="img" src="./assets/cookpot.svg">
       </div>
       <div class="js-output output hidden">
-        <h4>You should make:</h4>
-        <h1 class="js-output-text"></h1>
+        <h3>You should make:</h3>
+        <p class="js-output-text"></p>
       </div>
       <button class="clear-button hidden">CLEAR</button>
-    </article>
+    </section>
   </section>
 </body>
 <script type="text/javascript" src="main.js"></script>
