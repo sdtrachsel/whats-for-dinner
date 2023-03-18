@@ -1,11 +1,11 @@
-var letsCookBtn = document.querySelector('.cook-button');
-var clearBtn = document.querySelector('.clear-button');
-var radioBtns = document.getElementsByName('dish-type');
-var crockpotImg = document.querySelector('.js-crockpot-pic');
-var outputDisplay = document.querySelector('.js-output');
-var outputText = document.querySelector('.js-output-text');
+const letsCookBtn = document.getElementById('cookBtn');
+const clearBtn = document.getElementById('clearBtn');
+const radioBtns = document.getElementsByName('dish-type');
+const crockpotImg = document.querySelector('.js-crockpot-pic');
+const outputDisplay = document.querySelector('.js-output');
+const outputText = document.querySelector('.js-output-text');
 
-var meals = [
+const meals = [
     { name: 'sides', options: ['Miso Glazed Carrots', 'Coleslaw', 'Garden Salad', 'Crispy Potatoes', 'Sweet Potato Tots', 'Coconut Rice', 'Caeser Salad', 'Shrimp Summer Rolls', 'Garlic Butter Mushrooms', 'Hush Puppies'] },
     { name: 'mains', options: ['Spaghetti and Meatballs', 'Pineapple Chicken', 'Shakshuka', 'Thai Yellow Curry', 'Bibimbap', 'Chicken Parmesean', 'Butternut Squash Soup', 'BBQ Chicken Burgers', 'Ramen', 'Empanadas', 'Chicken Fried Rice', 'Sheet Pan Fajitas', 'Margarita Pizza'] },
     { name: 'desserts', options: ['Apple Pie', 'Lemon Meringue Pie', 'Black Forest Cake', 'Banana Bread', 'Peach Cobbler', 'Cheesecake', 'Funfetti Cake', 'Baklava', 'Flan', 'Macarons', 'Macaroons', 'Chocolate Cupcakes', 'Pavlova', 'Pumpkin Pie', 'Key Lime Pie', 'Tart Tatin', 'Croissants', 'Eclairs'] }
@@ -44,34 +44,23 @@ function clearOutput() {
 }
 
 function clearRadioSelection() {
-    for (var i = 0; i < radioBtns.length; i++) {
+    for (let i = 0; i < radioBtns.length; i++) {
         radioBtns[i].checked = false;
     }
 }
 
 function findSingleDishOption() {
-    var mealType = findSelection();
-    for (i = 0; i < meals.length; i++) {
-        if (meals[i].name === mealType) {
-            return meals[i].options[getRandomIndex(meals[i].options)];
-        }
-    }
-}
+    const mealType = findSelection();
+    const selection = meals.find(meal => meal.name === mealType);
 
-function findIndex(selection) {
-    var optionNames = [];
-    for (var i = 0; i < meals.length; i++) {
-        optionNames.push(meals[i].name)
-    }
-    return optionNames.indexOf(selection)
+    return selection.options[getRandomIndex(selection.options)];
 }
 
 function findSelection() {
-    for (var i = 0; i < radioBtns.length; i++) {
-        if (radioBtns[i].checked) {
-            return radioBtns[i].value;
-        }
-    }
+    const selection = Array.from(radioBtns).find(btn => {
+          return btn.checked === true;
+    }) 
+      return selection.value;
 }
 
 function populateOutput() {
@@ -79,7 +68,7 @@ function populateOutput() {
     if (!findSelection()) {
         displayCrockpot();
     } else if (findSelection() === 'entire-meal') {
-        outputText.innerText = `${meals[findIndex('mains')].options[getRandomIndex(meals[findIndex('mains')].options)]} with a side of ${meals[0].options[getRandomIndex(meals[0].options)]} and ${meals[2].options[getRandomIndex(meals[2].options)]} for dessert!`;
+        outputText.innerText = `${meals[1].options[getRandomIndex(meals[1].options)]} with a side of ${meals[0].options[getRandomIndex(meals[0].options)]} and ${meals[2].options[getRandomIndex(meals[2].options)]} for dessert!`;
         outputText.classList.add('entire-meal');
         displayOutput();
     } else {
